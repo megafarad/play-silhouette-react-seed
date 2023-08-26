@@ -1,12 +1,14 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
-import TextField from '@mui/material/TextField';
 import Header from './Header';
 import {useTranslation} from 'react-i18next';
-import {Form} from 'react-router-dom';
-import Button from '@mui/material/Button';
+import {Form as ReactRouterForm} from 'react-router-dom';
 import ApiResponse from './ApiResponse';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const ForgotPassword = () => {
   const {t} = useTranslation();
@@ -14,36 +16,33 @@ const ForgotPassword = () => {
   return (
     <>
       <Header/>
-      <Box
-        display='flex'
-        justifyContent='center'
-        alignItems='center'
-        minHeight='60vh'
-      >
-        <Form method='post'>
-          <Grid container>
-            <ApiResponse/>
-            <Grid xs={12}>
-              <legend>{t('forgot.password')}</legend>
-            </Grid>
-            <Grid xs={12}>
-              {t('forgot.password.info')}
-            </Grid>
-            <Grid xs={12}>
-              <TextField
-                sx={{ m: 1, width: '25ch' }}
-                id='email'
-                name='email'
-                label={t('email')}
-                variant='standard'
-              />
-            </Grid>
-            <Grid xs={12}>
-              <Button type='submit' variant='contained'>{t('send')}</Button>
-            </Grid>
-          </Grid>
-        </Form>
-      </Box>
+      <Container>
+          <ApiResponse/>
+          <ReactRouterForm method='post'>
+              <Row>
+                  <Col>
+                      <legend>{t('forgot.password')}</legend>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                      {t('forgot.password.info')}
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                      <FloatingLabel controlId='emailAddress' label='Email address' className='mt-3'>
+                          <Form.Control id='email' name='email' type='email' placeholder='name@example.com' />
+                      </FloatingLabel>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                      <Button type='submit' variant='primary' className='mt-3'>{t('send')}</Button>
+                  </Col>
+              </Row>
+          </ReactRouterForm>
+      </Container>
     </>
   )
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import {clearApiResponse} from '../redux/apiResponseSlice';
-import {useSelector} from 'react-redux';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle'
-import Grid from '@mui/material/Unstable_Grid2';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import Alert from 'react-bootstrap/Alert';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const ApiResponse = () => {
   const apiResponse = useSelector((state) => state.apiResponse.response);
@@ -19,32 +18,44 @@ const ApiResponse = () => {
   if (apiResponse) {
     if (apiResponse.info) {
       return (
-        <Grid xs={12}>
-          <Alert severity='info' onClose={onClose} sx={{width: '50%'}}>
-            <AlertTitle>{t('info')}</AlertTitle>
-            {apiResponse.info}
-          </Alert>
-        </Grid>
+        <Row>
+            <Col>
+              <Alert variant='info' onClose={onClose} dismissible>
+                <Alert.Heading>
+                  {t('info')}
+                </Alert.Heading>
+                {apiResponse.info}
+              </Alert>
+            </Col>
+        </Row>
       );
     }
     if (apiResponse.success) {
       return (
-        <Grid xs={12}>
-          <Alert severity='success' onClose={onClose} sx={{width: '50%'}}>
-            <AlertTitle>{t('success')}</AlertTitle>
-            {apiResponse.success}
-          </Alert>
-        </Grid>
+          <Row>
+            <Col>
+              <Alert variant='success' onClose={onClose} dismissible>
+                <Alert.Heading>
+                  {t('success')}
+                </Alert.Heading>
+                {apiResponse.success}
+              </Alert>
+            </Col>
+          </Row>
       );
     }
     if (apiResponse.error) {
       return (
-        <Grid xs={12}>
-          <Alert severity='error' onClose={onClose} sx={{width: '50%'}}>
-            <AlertTitle>{t('error')}</AlertTitle>
-            {apiResponse.error}
-          </Alert>
-        </Grid>
+          <Row>
+            <Col>
+              <Alert variant='danger' onClose={onClose} dismissible>
+                <Alert.Heading>
+                  {t('error')}
+                </Alert.Heading>
+                {apiResponse.error}
+              </Alert>
+            </Col>
+          </Row>
       );
     }
 

@@ -1,37 +1,33 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle'
-import Grid from '@mui/material/Unstable_Grid2';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import {clearSignInResponse} from "../redux/userSlice";
+import {clearSignInResponse} from '../redux/userSlice';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
 
 const SignInError = () => {
   const signInResponse = useSelector((state) => state.user.signInResponse);
   const dispatch = useDispatch();
   const {t} = useTranslation();
 
+  const onClose = () => {
+    dispatch(clearSignInResponse());
+  }
+
   if (signInResponse && signInResponse.error) {
     return (
-      <Grid xs={12}>
-        <Alert severity='error' sx={{width: '50%'}} action={
-          <IconButton
-            aria-label='close'
-            color='inherit'
-            size='small'
-            onClick={() => {
-              dispatch(clearSignInResponse());
-            }}
-          >
-            <CloseIcon fontSize='inherits'/>
-          </IconButton>
-        }>
-          <AlertTitle>{t('error')}</AlertTitle>
-          {signInResponse.error}
-        </Alert>      </Grid>
+      <Row>
+        <Col>
+          <Alert variant='danger' onClose={onClose} dismissible>
+            <Alert.Heading>
+              {t('error')}
+            </Alert.Heading>
+            {signInResponse.error}
+          </Alert>
+        </Col>
+      </Row>
     )
   }
 
