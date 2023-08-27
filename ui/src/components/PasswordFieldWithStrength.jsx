@@ -10,36 +10,33 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {MdVisibility, MdVisibilityOff} from 'react-icons/md';
 
+const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions);
+zxcvbnOptions.addMatcher('pwned', matcherPwned);
+
+const loadOptions = async () => {
+  const zxcvbnCommonPackage = await import(
+      /* webpackChunkName: "zxcvbnCommonPackage" */ '@zxcvbn-ts/language-common'
+      );
+  const zxcvbnEnPackage = await import(
+      /* webpackChunkName: "zxcvbnEnPackage" */ '@zxcvbn-ts/language-en'
+      );
+  return ({
+    dictionary: {
+      ...zxcvbnCommonPackage.dictionary,
+      ...zxcvbnEnPackage.dictionary,
+    },
+    graphs: zxcvbnCommonPackage.adjacencyGraphs,
+    useLevenshteinDistance: true,
+    translations: zxcvbnEnPackage.translations,
+  })
+}
+loadOptions().then((options) => {
+  zxcvbnOptions.setOptions(options);
+});
+
 const usePasswordStrength = (password) => {
   const [result, setResult] = useState(null);
   const deferredPassword = useDeferredValue(password);
-
-  useEffect(() => {
-    const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions);
-    zxcvbnOptions.addMatcher('pwned', matcherPwned);
-
-    const loadOptions = async () => {
-      const zxcvbnCommonPackage = await import(
-          /* webpackChunkName: "zxcvbnCommonPackage" */ '@zxcvbn-ts/language-common'
-          );
-      const zxcvbnEnPackage = await import(
-          /* webpackChunkName: "zxcvbnEnPackage" */ '@zxcvbn-ts/language-en'
-          );
-      return ({
-        dictionary: {
-          ...zxcvbnCommonPackage.dictionary,
-          ...zxcvbnEnPackage.dictionary,
-        },
-        graphs: zxcvbnCommonPackage.adjacencyGraphs,
-        useLevenshteinDistance: true,
-        translations: zxcvbnEnPackage.translations,
-      })
-    }
-    loadOptions().then((options) => {
-      console.log(options);
-      zxcvbnOptions.setOptions(options);
-    })
-  }, []);
 
   useEffect(() => {
     zxcvbnAsync(deferredPassword).then((response) => setResult(response));
