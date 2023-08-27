@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/Button";
+import Button from 'react-bootstrap/Button';
 import {MdVisibility, MdVisibilityOff} from 'react-icons/md';
 
 const usePasswordStrength = (password) => {
@@ -35,7 +35,10 @@ const usePasswordStrength = (password) => {
         translations: zxcvbnEnPackage.translations,
       })
     }
-    loadOptions().then((options) => zxcvbnOptions.setOptions(options))
+    loadOptions().then((options) => {
+      console.log(options);
+      zxcvbnOptions.setOptions(options);
+    })
   }, []);
 
   useEffect(() => {
