@@ -1,4 +1,5 @@
-import {createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import getCsrfTokenCookie from '../util/getCsrfTokenCookie';
 
 export const signIn = createAsyncThunk(
   'user/signIn',
@@ -7,7 +8,7 @@ export const signIn = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       body: JSON.stringify(signInForm),
     });
@@ -23,7 +24,7 @@ export const signOut = createAsyncThunk(
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Csrf-Token' : getCsrfTokenCookie()
       }
     });
     return await res.json();
@@ -37,7 +38,7 @@ export const totpSubmit = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       body: JSON.stringify(totpForm)
     });
@@ -52,7 +53,7 @@ export const totpRecoverySubmit = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       body: JSON.stringify(totpRecoveryForm)
     });

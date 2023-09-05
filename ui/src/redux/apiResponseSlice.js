@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import getCsrfTokenCookie from '../util/getCsrfTokenCookie';
 
 export const signUp = createAsyncThunk(
   'api/signUp',
@@ -7,7 +8,7 @@ export const signUp = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       body: JSON.stringify(signUpForm),
     });
@@ -29,7 +30,7 @@ export const submitTOTPSetup = createAsyncThunk(
     const res = await fetch('/api/totpSetup', {
       method: 'POST',
       headers: {
-        'X-Requested-With': 'XMLHttpRequest',
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       credentials: 'include',
       body: form
@@ -44,7 +45,7 @@ export const disableTOTP = createAsyncThunk(
     const res = await fetch('/api/disableTotp', {
       method: 'POST',
       headers: {
-        'X-Requested-With': 'XMLHttpRequest',
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       credentials: 'include',
     });
@@ -59,7 +60,7 @@ export const changePassword = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       credentials: 'include',
       body: JSON.stringify(changePasswordForm)
@@ -75,7 +76,7 @@ export const forgotPassword = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       body: JSON.stringify(forgotPasswordForm)
     });
@@ -98,7 +99,7 @@ export const resetPassword = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
+        'Csrf-Token' : getCsrfTokenCookie()
       },
       body: JSON.stringify({password: password})
     });
