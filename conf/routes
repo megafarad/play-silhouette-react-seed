@@ -5,6 +5,7 @@
 # Home page
 GET         /                                controllers.ApplicationController.index
 POST        /api/signOut                     controllers.ApplicationController.signOut
+GET         /authenticate/providers          controllers.SocialAuthController.providers
 GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
 
 

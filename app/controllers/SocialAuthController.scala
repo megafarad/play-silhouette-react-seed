@@ -48,4 +48,8 @@ class SocialAuthController @Inject() (
         Redirect("/signIn", Map("error" -> Seq(Messages("could.not.authenticate"))))
     }
   }
+
+  def providers: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(Json.toJson(socialProviderRegistry.providers.map(_.id)))
+  }
 }

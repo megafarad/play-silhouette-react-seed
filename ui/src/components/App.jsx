@@ -92,6 +92,10 @@ const App = () => {
     {
       element: <SignIn/>,
       path: '/signIn',
+      loader: async () => {
+        const res = await fetch('/authenticate/providers');
+        return res.json();
+      },
       action: async ({request}) => {
         const formData = await request.formData();
         const formJson = Object.fromEntries(formData);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import {useTranslation} from 'react-i18next';
-import {Form as RectRouterForm, Link} from 'react-router-dom';
+import {Form as RectRouterForm, Link, useLoaderData} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
@@ -10,10 +10,22 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ApiResponse from './ApiResponse';
 import SignInError from './SignInError';
-import PasswordField from "./PasswordField";
+import PasswordField from './PasswordField';
+
 
 const SignIn = () => {
   const { t} = useTranslation();
+
+  const authenticationProviders = useLoaderData();
+
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item) => { images[item.replace('./', '')] = r(item); return null; });
+    return images;
+  }
+
+  const images = importAll(require.context('../images/providers', false, /\.(png|jpe?g|svg)$/));
+  console.log(images);
 
   return (
     <>
@@ -58,6 +70,21 @@ const SignIn = () => {
                   <Col>
                       {t('not.a.member')} <Link to='/signUp'>{t('sign.up.now')}</Link> | <Link to='/password/forgot'>{t('forgot.your.password')}</Link>
                   </Col>
+              </Row>
+              <Row className='mt-3'>
+                  <Col>
+                      {t('or.use.social')}
+                  </Col>
+              </Row>
+              <Row className='mt-3'>
+                  {authenticationProviders && authenticationProviders.length > 0 ? authenticationProviders.map((providerId, idx) => {
+                      return(<Col>
+                          <a key={idx} className={`provider ${providerId}`} href={'/authenticate/'+ providerId}>
+                              <img src={images[providerId + '.png']} alt={providerId}/>
+                          </a>
+                      </Col>)
+                  }) : null}
+
               </Row>
           </RectRouterForm>
       </Container>
