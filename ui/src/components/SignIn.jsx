@@ -25,7 +25,6 @@ const SignIn = () => {
   }
 
   const images = importAll(require.context('../images/providers', false, /\.(png|jpe?g|svg)$/));
-  console.log(images);
 
   return (
     <>
@@ -78,8 +77,8 @@ const SignIn = () => {
               </Row>
               <Row className='mt-3'>
                   {authenticationProviders && authenticationProviders.length > 0 ? authenticationProviders.map((providerId, idx) => {
-                      return(<Col>
-                          <a key={idx} className={`provider ${providerId}`} href={'/authenticate/'+ providerId}>
+                      return(<Col key={idx}>
+                          <a className={`provider ${providerId}`} href={'/authenticate/'+ providerId}>
                               <img src={images[providerId + '.png']} alt={providerId}/>
                           </a>
                       </Col>)
