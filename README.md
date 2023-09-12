@@ -18,6 +18,15 @@ The Silhouette React Seed project is a template which shows how [Silhouette](htt
 * [Security headers](https://www.playframework.com/documentation/latest/SecurityHeaders)
 * [CSRF Protection](https://www.playframework.com/documentation/latest/ScalaCsrf)
 
+## Building & Running
+
+1. Clone the repo (i.e. `git clone https://github.com/megafarad/play-silhouette-react-seed.git`)
+2. `cd play-silhouette-react-seed`
+3. `sbt uiProdBuild`
+4. `sbt run` (or use an IDE to start the project)
+
+The project will then be available for use at http://localhost:9000/
+
 ## Documentation
 
 Consult the [Silhouette documentation](https://silhouette.readme.io/docs) for more information. 
