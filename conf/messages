@@ -101,7 +101,7 @@ yahoo = Yahoo
 # Emails
 ##########
 
-email.from = Silhouette <noreply@mohiva.com>
+email.from = Silhouette <noreply@automail.megafarad.com>
 
 # Sign Up
 email.sign.up.subject = Welcome
