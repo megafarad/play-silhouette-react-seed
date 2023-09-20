@@ -3,6 +3,8 @@ logLevel := Level.Warn
 
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.19")
 
+addSbtPlugin("com.heroku" % "sbt-heroku" % "2.1.4")
+
 // can be removed when Play release 2.8.20
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 
