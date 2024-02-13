@@ -1,8 +1,8 @@
 package controllers
 
-import io.github.honeycombcheesecake.play.silhouette.api.Authenticator.Implicits._
-import io.github.honeycombcheesecake.play.silhouette.api._
-import io.github.honeycombcheesecake.play.silhouette.api.services.AuthenticatorResult
+import play.silhouette.api.Authenticator.Implicits._
+import play.silhouette.api._
+import play.silhouette.api.services.AuthenticatorResult
 import models.User
 import models.User._
 import play.api.libs.json.Json

@@ -2,8 +2,8 @@ package models.services
 
 import java.util.UUID
 
-import io.github.honeycombcheesecake.play.silhouette.api.services.IdentityService
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.CommonSocialProfile
+import play.silhouette.api.services.IdentityService
+import play.silhouette.impl.providers.CommonSocialProfile
 import models.User
 
 import scala.concurrent.Future

@@ -2,27 +2,27 @@ package modules
 
 import com.google.inject.name.Named
 import com.google.inject.{ AbstractModule, Provides }
-import io.github.honeycombcheesecake.play.silhouette.api.actions.{ SecuredErrorHandler, UnsecuredErrorHandler }
-import io.github.honeycombcheesecake.play.silhouette.api.crypto._
-import io.github.honeycombcheesecake.play.silhouette.api.repositories.AuthInfoRepository
-import io.github.honeycombcheesecake.play.silhouette.api.services._
-import io.github.honeycombcheesecake.play.silhouette.api.util._
-import io.github.honeycombcheesecake.play.silhouette.api.{ Environment, EventBus, Silhouette, SilhouetteProvider }
-import io.github.honeycombcheesecake.play.silhouette.crypto.{ JcaCrypter, JcaCrypterSettings, JcaSigner, JcaSignerSettings }
-import io.github.honeycombcheesecake.play.silhouette.impl.authenticators._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.oauth1._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.oauth1.secrets.{ CookieSecretProvider, CookieSecretSettings }
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.oauth1.services.PlayOAuth1Service
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.oauth2._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.openid.YahooProvider
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.openid.services.PlayOpenIDService
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.state.{ CsrfStateItemHandler, CsrfStateSettings }
-import io.github.honeycombcheesecake.play.silhouette.impl.services._
-import io.github.honeycombcheesecake.play.silhouette.impl.util._
-import io.github.honeycombcheesecake.play.silhouette.password.{ BCryptPasswordHasher, BCryptSha256PasswordHasher }
-import io.github.honeycombcheesecake.play.silhouette.persistence.daos.{ DelegableAuthInfoDAO, InMemoryAuthInfoDAO }
-import io.github.honeycombcheesecake.play.silhouette.persistence.repositories.DelegableAuthInfoRepository
+import play.silhouette.api.actions.{ SecuredErrorHandler, UnsecuredErrorHandler }
+import play.silhouette.api.crypto._
+import play.silhouette.api.repositories.AuthInfoRepository
+import play.silhouette.api.services._
+import play.silhouette.api.util._
+import play.silhouette.api.{ Environment, EventBus, Silhouette, SilhouetteProvider }
+import play.silhouette.crypto.{ JcaCrypter, JcaCrypterSettings, JcaSigner, JcaSignerSettings }
+import play.silhouette.impl.authenticators._
+import play.silhouette.impl.providers._
+import play.silhouette.impl.providers.oauth1._
+import play.silhouette.impl.providers.oauth1.secrets.{ CookieSecretProvider, CookieSecretSettings }
+import play.silhouette.impl.providers.oauth1.services.PlayOAuth1Service
+import play.silhouette.impl.providers.oauth2._
+import play.silhouette.impl.providers.openid.YahooProvider
+import play.silhouette.impl.providers.openid.services.PlayOpenIDService
+import play.silhouette.impl.providers.state.{ CsrfStateItemHandler, CsrfStateSettings }
+import play.silhouette.impl.services._
+import play.silhouette.impl.util._
+import play.silhouette.password.{ BCryptPasswordHasher, BCryptSha256PasswordHasher }
+import play.silhouette.persistence.daos.{ DelegableAuthInfoDAO, InMemoryAuthInfoDAO }
+import play.silhouette.persistence.repositories.DelegableAuthInfoRepository
 import com.typesafe.config.Config
 import controllers.{ DefaultRememberMeConfig, DefaultSilhouetteControllerComponents, RememberMeConfig, SilhouetteControllerComponents }
 import models.daos._

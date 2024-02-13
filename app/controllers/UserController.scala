@@ -1,7 +1,7 @@
 package controllers
 
-import io.github.honeycombcheesecake.play.silhouette.api.util.PasswordInfo
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.GoogleTotpInfo
+import play.silhouette.api.util.PasswordInfo
+import play.silhouette.impl.providers.GoogleTotpInfo
 import play.api.libs.json._
 import play.api.mvc.{ Action, AnyContent }
 

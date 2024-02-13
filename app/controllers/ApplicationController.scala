@@ -1,7 +1,7 @@
 package controllers
 
-import io.github.honeycombcheesecake.play.silhouette.api.LogoutEvent
-import io.github.honeycombcheesecake.play.silhouette.api.actions._
+import play.silhouette.api.LogoutEvent
+import play.silhouette.api.actions._
 import play.api.Configuration
 import play.api.http.HttpErrorHandler
 import play.api.libs.json.Json

@@ -4,20 +4,20 @@ import scalariform.formatter.preferences._
 
 name := "play-silhouette-react-seed"
 
-version := "8.0.0"
+version := "9.0.0"
 
-scalaVersion := "2.13.10"
+scalaVersion := "2.13.12"
 
 resolvers += Resolver.jcenterRepo
 
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 val versions = new Object {
-  val silhouette = "8.0.1"
+  val silhouette = "9.0.0"
   val playMailer = "8.0.1"
 }
 val deps = new Object {
-  def silhouette(post: String) = "io.github.honeycomb-cheesecake" %% s"play-silhouette$post" % versions.silhouette
+  def silhouette(post: String) = "org.playframework.silhouette" %% s"play-silhouette$post" % versions.silhouette
 }
 
 libraryDependencies ++= Seq(

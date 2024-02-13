@@ -2,7 +2,7 @@ package models
 
 import java.util.UUID
 
-import io.github.honeycombcheesecake.play.silhouette.api.{ Identity, LoginInfo }
+import play.silhouette.api.{ Identity, LoginInfo }
 import play.api.libs.json._
 
 /**

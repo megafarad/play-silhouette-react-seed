@@ -4,7 +4,7 @@ import java.util.UUID
 
 import models.AuthToken
 import models.daos.AuthTokenDAOImpl._
-import org.joda.time.DateTime
+import java.time.Instant
 
 import scala.collection.mutable
 import scala.concurrent.Future
@@ -27,7 +27,7 @@ class AuthTokenDAOImpl extends AuthTokenDAO {
    *
    * @param dateTime The current date time.
    */
-  def findExpired(dateTime: DateTime) = Future.successful {
+  def findExpired(dateTime: Instant) = Future.successful {
     tokens.filter {
       case (_, token) =>
         token.expiry.isBefore(dateTime)

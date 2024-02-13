@@ -1,8 +1,8 @@
 package controllers
 
-import io.github.honeycombcheesecake.play.silhouette.api._
-import io.github.honeycombcheesecake.play.silhouette.api.exceptions.ProviderException
-import io.github.honeycombcheesecake.play.silhouette.impl.providers._
+import play.silhouette.api._
+import play.silhouette.api.exceptions.ProviderException
+import play.silhouette.impl.providers._
 
 import javax.inject.Inject
 import play.api.i18n.Messages

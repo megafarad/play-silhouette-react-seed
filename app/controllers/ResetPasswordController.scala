@@ -1,8 +1,8 @@
 package controllers
 
 import java.util.UUID
-import io.github.honeycombcheesecake.play.silhouette.api.util.PasswordInfo
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.CredentialsProvider
+import play.silhouette.api.util.PasswordInfo
+import play.silhouette.impl.providers.CredentialsProvider
 import forms.ResetPasswordForm
 
 import javax.inject.Inject

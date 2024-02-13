@@ -1,8 +1,8 @@
 package controllers
 
 import java.util.UUID
-import io.github.honeycombcheesecake.play.silhouette.api._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers._
+import play.silhouette.api._
+import play.silhouette.impl.providers._
 import forms.SignUpForm
 
 import javax.inject.Inject

@@ -1,10 +1,10 @@
 package controllers
 
 import forms.{ SignInForm, TotpForm }
-import io.github.honeycombcheesecake.play.silhouette.api.exceptions.ProviderException
-import io.github.honeycombcheesecake.play.silhouette.api.util.Credentials
-import io.github.honeycombcheesecake.play.silhouette.impl.exceptions.IdentityNotFoundException
-import io.github.honeycombcheesecake.play.silhouette.impl.providers._
+import play.silhouette.api.exceptions.ProviderException
+import play.silhouette.api.util.Credentials
+import play.silhouette.impl.exceptions.IdentityNotFoundException
+import play.silhouette.impl.providers._
 import play.api.i18n.Messages
 import play.api.libs.json._
 import play.api.mvc.{ Action, AnyContent, Request }

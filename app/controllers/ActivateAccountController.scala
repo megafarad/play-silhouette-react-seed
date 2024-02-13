@@ -2,8 +2,8 @@ package controllers
 
 import java.net.URLDecoder
 import java.util.UUID
-import io.github.honeycombcheesecake.play.silhouette.api._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.CredentialsProvider
+import play.silhouette.api._
+import play.silhouette.impl.providers.CredentialsProvider
 
 import javax.inject.Inject
 import play.api.i18n.Messages

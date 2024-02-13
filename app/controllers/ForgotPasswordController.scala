@@ -1,7 +1,7 @@
 package controllers
 
-import io.github.honeycombcheesecake.play.silhouette.api._
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.CredentialsProvider
+import play.silhouette.api._
+import play.silhouette.impl.providers.CredentialsProvider
 import forms.ForgotPasswordForm
 
 import javax.inject.Inject

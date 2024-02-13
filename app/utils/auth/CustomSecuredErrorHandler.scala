@@ -1,7 +1,7 @@
 package utils.auth
 
 import javax.inject.Inject
-import io.github.honeycombcheesecake.play.silhouette.api.actions.SecuredErrorHandler
+import play.silhouette.api.actions.SecuredErrorHandler
 import play.api.i18n.{ I18nSupport, Messages, MessagesApi }
 import play.api.libs.json.Json
 import play.api.mvc.{ Call, RequestHeader, Result }

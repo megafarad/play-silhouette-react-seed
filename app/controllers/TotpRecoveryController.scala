@@ -1,9 +1,9 @@
 package controllers
 
 import java.util.UUID
-import io.github.honeycombcheesecake.play.silhouette.api.exceptions.ProviderException
-import io.github.honeycombcheesecake.play.silhouette.impl.exceptions.IdentityNotFoundException
-import io.github.honeycombcheesecake.play.silhouette.impl.providers._
+import play.silhouette.api.exceptions.ProviderException
+import play.silhouette.impl.exceptions.IdentityNotFoundException
+import play.silhouette.impl.providers._
 import forms.TotpRecoveryForm
 
 import javax.inject.Inject

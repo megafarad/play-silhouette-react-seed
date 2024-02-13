@@ -1,11 +1,11 @@
 package controllers
 
-import io.github.honeycombcheesecake.play.silhouette.api.actions.{ SecuredActionBuilder, UnsecuredActionBuilder }
-import io.github.honeycombcheesecake.play.silhouette.api.repositories.AuthInfoRepository
-import io.github.honeycombcheesecake.play.silhouette.api.services.{ AuthenticatorService, AvatarService }
-import io.github.honeycombcheesecake.play.silhouette.api.util.{ Clock, PasswordHasherRegistry }
-import io.github.honeycombcheesecake.play.silhouette.api.{ EventBus, Silhouette }
-import io.github.honeycombcheesecake.play.silhouette.impl.providers.{ CredentialsProvider, GoogleTotpProvider, SocialProviderRegistry }
+import play.silhouette.api.actions.{ SecuredActionBuilder, UnsecuredActionBuilder }
+import play.silhouette.api.repositories.AuthInfoRepository
+import play.silhouette.api.services.{ AuthenticatorService, AvatarService }
+import play.silhouette.api.util.{ Clock, PasswordHasherRegistry }
+import play.silhouette.api.{ EventBus, Silhouette }
+import play.silhouette.impl.providers.{ CredentialsProvider, GoogleTotpProvider, SocialProviderRegistry }
 import javax.inject.Inject
 import models.services.{ AuthTokenService, UserService }
 import play.api.Logging

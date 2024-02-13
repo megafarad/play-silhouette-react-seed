@@ -1,7 +1,7 @@
 // Comment to get more information during initialization
 logLevel := Level.Warn
 
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.19")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.9.1")
 
 addSbtPlugin("com.heroku" % "sbt-heroku" % "2.1.4")
 

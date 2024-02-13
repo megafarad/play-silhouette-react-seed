@@ -1,6 +1,6 @@
 package utils.auth
 
-import io.github.honeycombcheesecake.play.silhouette.api.actions.UnsecuredErrorHandler
+import play.silhouette.api.actions.UnsecuredErrorHandler
 import play.api.mvc.{ RequestHeader, Result }
 import play.api.mvc.Results._
 
