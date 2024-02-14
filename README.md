@@ -1,7 +1,7 @@
 Silhouette React Seed Template
 =====================================
 
-The Silhouette React Seed project is a template which shows how [Silhouette](https://github.com/honeycomb-cheesecake/play-silhouette) can be implemented in a Play Framework application. It's a starting point which can be extended to fit your needs.
+The Silhouette React Seed project is a template which shows how [Silhouette](https://github.com/playframework/play-silhouette) can be implemented in a Play Framework application. It's a starting point which can be extended to fit your needs.
 
 ## Features
 
