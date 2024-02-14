@@ -14,7 +14,7 @@ resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositor
 
 val versions = new Object {
   val silhouette = "9.0.0"
-  val playMailer = "8.0.1"
+  val playMailer = "9.0.0"
 }
 val deps = new Object {
   def silhouette(post: String) = "org.playframework.silhouette" %% s"play-silhouette$post" % versions.silhouette
