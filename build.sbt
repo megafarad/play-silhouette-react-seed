@@ -13,8 +13,8 @@ resolvers += Resolver.jcenterRepo
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 val versions = new Object {
-  val silhouette = "9.0.0"
-  val playMailer = "9.0.0"
+  val silhouette = "10.0.0"
+  val playMailer = "10.0.0"
 }
 val deps = new Object {
   def silhouette(post: String) = "org.playframework.silhouette" %% s"play-silhouette$post" % versions.silhouette
@@ -28,9 +28,9 @@ libraryDependencies ++= Seq(
   deps.silhouette("-totp"),
   "net.codingwell" %% "scala-guice" % "5.1.1",
   "com.iheart" %% "ficus" % "1.5.2",
-  "com.typesafe.play" %% "play-mailer" % versions.playMailer,
-  "com.typesafe.play" %% "play-mailer-guice" % versions.playMailer,
-  "com.enragedginger" %% "akka-quartz-scheduler" % "1.9.3-akka-2.6.x",
+  "org.playframework" %% "play-mailer" % versions.playMailer,
+  "org.playframework" %% "play-mailer-guice" % versions.playMailer,
+  "io.github.samueleresca" %% "pekko-quartz-scheduler" % "1.2.0-pekko-1.0.x",
   deps.silhouette("-testkit") % "test",
   specs2 % Test,
   ehcache,

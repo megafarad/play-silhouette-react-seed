@@ -1,7 +1,7 @@
 package jobs
 
 import javax.inject.Inject
-import akka.actor._
+import org.apache.pekko.actor._
 import play.silhouette.api.util.Clock
 import jobs.AuthTokenCleaner.Clean
 import models.services.AuthTokenService
